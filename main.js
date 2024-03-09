@@ -41,9 +41,7 @@ function createMarker(position) {
 }
 
 function updateProgressAndCreateMarker(numberPlayer) {
-  const rangeBar = document.querySelector("#range-bar");
   const percentage = (numberPlayer / 500) * 100;
-  rangeBar.style.width = `${percentage}%`;
   createMarker(percentage);
 }
 
