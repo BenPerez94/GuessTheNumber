@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/bb33694aa2.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="app" class="px-10">
+      <header
+        class="flex justify-between my-0 m-auto max-w-screen-md py-10 border-b-2"
+      >
+        <h1 class="text-5xl">Guess the number</h1>
+        <i class="fa-solid fa-dice text-6xl mr-10"></i>
+      </header>
+      <section>
+        <div class="max-w-screen-md m-auto my-0 py-2 text-right">
+          <div id="show-rules" class="inline cursor-pointer hidden">
+            <i class="fa-solid fa-eye mr-2"></i> Voir les regles
+          </div>
+        </div>
+        <div id="rules" class="my-0 m-auto max-w-screen-md">
+          <h2>Règle du jeu :</h2>
+          <p class="mb-6">
+            Votre défi consiste à deviner un nombre aléatoire généré par
+            l'application, qui se situe quelque part entre 0 et 500. Votre
+            objectif est de le trouver en utilisant le moins de tentatives
+            possible. Prenez le temps de réfléchir stratégiquement et de choisir
+            soigneusement vos numéros, car chaque essai compte pour atteindre
+            votre but. Bonne chance dans cette quête de précision et de
+            perspicacité!
+          </p>
+        </div>
+        <div class="text-center pt-10">
+          <button id="play" class="text-xl px-10 py-5">Jouer</button>
+        </div>
+        <div id="game" class="my-0 m-auto max-w-screen-md hidden">
+          <h2>Trouvez le nombre !</h2>
+          <p id="amouts-game" class="text-center text-5xl m-0">0</p>
+          <p class="text-center">Nombre de tentatives</p>
+          <form class="my-10" id="form">
+            <label for="number">Entrez votre nombre ici:</label>
+            <div class="flex">
+              <input
+                type="text"
+                name="number"
+                id="number"
+                onsubmit="this.value=''"
+              />
+              <button type="submit" form="form">Choisir</button>
+            </div>
+          </form>
+          <div
+            class="hidden flex bg-red-100 bg-opacity-75 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+            role="alert"
+          >
+            <div>
+              <svg
+                class="fill-current h-6 w-6 text-red-700 mr-4"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"
+                />
+              </svg>
+            </div>
+            <div id="fail-result"></div>
+          </div>
+          <div id="range-container" class="max-w-screen-md h-10 border-2 my-10">
+            <div id="range-bar"></div>
+          </div>
+        </div>
+        <div
+          id="end-game"
+          class="my-0 m-auto max-w-screen-md text-center hidden"
+        >
+          <h2 class="text-3xl mt-10">
+            Bravo ! Vous avez trouvez le bon nombre !
+          </h2>
+          <div id="number-Search" class="text-center text-6xl"></div>
+          <div id="amounts" class="my-2"></div>
+          <p class="mt-10">On s'en refait une ?</p>
+          <button id="replay" class="mt-10">Rejouer !</button>
+        </div>
+      </section>
+      <footer
+        class="min-w-screen-md flex justify-between max-w-screen-md my-0 m-auto p-10 mt-20 bottom-0 border-t-2"
+      >
+        <div class="py-3">Réaliser par Ben. Perez</div>
+        <div><img src="github.png" alt="logo Github" /></div>
+      </footer>
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
