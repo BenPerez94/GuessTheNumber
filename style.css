@@ -66,6 +66,7 @@ header i {
 }
 #range-container i {
   color: red;
+  margin-left: -7px;
 }
 .marker {
   position: absolute;
