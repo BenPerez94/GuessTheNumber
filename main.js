@@ -19,13 +19,13 @@ function resultInfo(text) {
   return;
 }
 
-function amountCreate() {
-  while (amountsGame?.firstChild) {
-    amountsGame?.firstChild.remove();
+function attempCreate() {
+  while (attempsGame?.firstChild) {
+    attempsGame?.firstChild.remove();
   }
-  const spanAmountsGame = document.createElement("span");
-  spanAmountsGame.innerText = String(amount);
-  amountsGame?.appendChild(spanAmountsGame);
+  const spanattempsGame = document.createElement("span");
+  spanattempsGame.innerText = String(attemp);
+  attempsGame?.appendChild(spanattempsGame);
 }
 
 function createMarker(position) {
@@ -52,9 +52,9 @@ const game = document.querySelector("#game");
 const endGame = document.querySelector("#end-game");
 const numberView = document.querySelector("#number-Search");
 const span = document.createElement("span");
-const spanAmount = document.createElement("span");
-const amounts = document.querySelector("#amounts");
-const amountsGame = document.querySelector("#amouts-game");
+const spanattemp = document.createElement("span");
+const attemps = document.querySelector("#attemps");
+const attempsGame = document.querySelector("#amouts-game");
 
 playButton?.addEventListener("click", (e) => {
   e.preventDefault();
@@ -65,9 +65,9 @@ playButton?.addEventListener("click", (e) => {
 });
 
 let numberSearch = getRandomArbitrary(0, 500);
-let amount = 0;
+let attemp = 0;
 
-amountCreate();
+attempCreate();
 
 const form = document.querySelector("#form");
 
@@ -90,8 +90,8 @@ form?.addEventListener("submit", (e) => {
     return;
   }
 
-  amount++;
-  amountCreate();
+  attemp++;
+  attempCreate();
 
   const alert = document.querySelector("#fail-result");
   const blockAlertActive = document.querySelector(".hidden");
@@ -119,8 +119,8 @@ form?.addEventListener("submit", (e) => {
     span.innerText = String(numberSearch);
     numberView?.appendChild(span);
 
-    spanAmount.innerText = "Tu as reussi en " + String(amount) + " coups !";
-    amounts?.appendChild(spanAmount);
+    spanattemp.innerText = "Tu as reussi en " + String(attemp) + " coups !";
+    attemps?.appendChild(spanattemp);
 
     return;
   }
@@ -134,8 +134,8 @@ showRules?.addEventListener("click", () => {
 const replayButton = document.querySelector("#replay");
 replayButton?.addEventListener("click", (e) => {
   e.preventDefault();
-  amount = 0;
-  amountCreate();
+  attemp = 0;
+  attempCreate();
   endGame?.classList.add("hidden");
   game?.classList.remove("hidden");
   numberSearch = getRandomArbitrary(0, 500);
